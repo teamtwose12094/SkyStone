@@ -10,5 +10,16 @@ public class BlueDepotToBridge extends Autonomous {
     public void runPath() {
         move(28, 1, 0);
         move(33, 1, 1); //was 43
+       /*robot.grab.setPosition(0.26);
+       move(5,1,1);
+       move(15,1,0);
+       sleep(500);
+       robot.grab.setPosition(1);
+       //sleep(5000);
+       move(15, -1, 0);
+       move(10,-1,1);
+       robot.grab.setPosition(0.26);*/
+
+
     }
 }

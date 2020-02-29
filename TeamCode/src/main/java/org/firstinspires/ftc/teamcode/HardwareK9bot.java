@@ -35,7 +35,7 @@ public class HardwareK9bot
     //public Servo hookTwo = null;
 
      //public DcMotor slide = null;
-     //public Servo grab = null;
+     public Servo grab = null;
 
     //public DcMotor leftMotor   = null;
     //public DcMotor rightMotor  = null;
@@ -54,9 +54,9 @@ public class HardwareK9bot
     //public Servo clawRight = null;
     //public Servo colourStick = null;
 
-    public Servo hookLeft = null;
-    public Servo hookRight = null;
-    public Servo markerStick = null;
+    //public Servo hookLeft = null;
+   // public Servo hookRight = null;
+   // public Servo markerStick = null;
 
     //public final static double ARM_HOME = 0.2;
 
@@ -98,7 +98,7 @@ public class HardwareK9bot
 //        rightMotor  = hwMap.dcMotor.get("right_drive");
         //fingerMotor = hwMap.dcMotor.get("chicken_fingers");
         //armSlide = hwMap.dcMotor.get("armSlide");
-        //slideMotor = hwMap.dcMotor.get("slide");
+        slideMotor = hwMap.dcMotor.get("slideMotor");
 //        linSlideLeftF = hwMap.dcMotor.get("linSlideLeft");
 //        linSlideRight = hwMap.dcMotor.get("linSlideRight");
 
@@ -110,7 +110,7 @@ public class HardwareK9bot
 
         //fingerMotor.setPower(0);
         //armMotor.setPower(0);
-        //slideMotor.setPower(0);
+        slideMotor.setPower(0);
 
 //      linSlideLeft.setPower(0);
 //      linSlideRight.setPower(0);
@@ -136,7 +136,7 @@ public class HardwareK9bot
 
         hookOne = hwMap.servo.get("hook_one");
        // hookTwo = hwMap.servo.get("hook_two");
-        //grab = hwMap.servo.get("grab");
+        grab = hwMap.servo.get("grab");
 
 
         //claw = hwMap.servo.get("claw");

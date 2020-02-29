@@ -9,21 +9,34 @@ public class BlueBuildToWall extends Autonomous{
 
     @Override
     public void runPath(){
-        robot.hookOne.setPosition(0.2);
+        robot.slideMotor.setPower(1);
+        sleep(1000);
+        robot.slideMotor.setPower(0);
+
+        robot.hookOne.setPosition(0.9);
         //robot.hookTwo.setPosition(0);
 
-        move(29, -1, 1);
+        move(22, -1, 1);
         sleep(100);
         move(33, 1, 0);
         sleep(500);
-        robot.hookOne.setPosition(01.5);
+        robot.hookOne.setPosition(0.09);
         //robot.hookTwo.setPosition(0.8);
         sleep(1500);
         move(46, -1, 0); // was 45*1.5
         sleep(500);
-        robot.hookOne.setPosition(0.2);
+        robot.hookOne.setPosition(0.9);
         //robot.hookTwo.setPosition(0);
+
         sleep(500);
-        move(62, 1, 1);
+        move(62/2, 1, 1);
+
+        sleep(1000);
+        robot.slideMotor.setPower(-1);
+        sleep(600);
+        robot.slideMotor.setPower(0);
+
+        move(62/2, 1, 1);
+
     }
 }

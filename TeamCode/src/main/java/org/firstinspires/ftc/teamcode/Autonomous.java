@@ -45,8 +45,8 @@ public abstract class Autonomous extends LinearOpMode {
   //  private static final String TFOD_MODEL_ASSET = "RoverRuckus.tflite";
     //private static final String LABEL_GOLD_MINERAL = "Gold Mineral";
  //   private static final String LABEL_SILVER_MINERAL = "Silver Mineral";
-    private static final String VUFORIA_KEY = "ATz1+9P/////AAABmeqS5/62ZUGpp5bTjFOlpkUQ/xkdYMvOFM8cjbv7n7uq3sYzUf93tbck4Wwz4tLtprq66GBhDQn1s06gkPiK4MJqUHZsdytuNcFacZO/2S66hK08CjwewQE8Wqs1T8I3wIEQENcMkWha0xwyR/2JfDGwQEGPnO56etL1eXzhScwqGARW1kOAS/zSzg4aWBUITk5FvDZG3lMxpZWIFEOmCIO92DR70BAc8QJz+51mzXvdFSb1kcwkvwcNWQ78ZRfnS41hq84A6Ps84PJRij48wy1oonI2tEXx/RHwoWOBcBFev7VNBDLWCo5VFQ3TtBJeHne5STFubET+3Eg1YWcuFhcAIc2zmVrh/W36NY6a4wkl";
-    private VuforiaLocalizer vuforia;
+    public static final String VUFORIA_KEY = "ATz1+9P/////AAABmeqS5/62ZUGpp5bTjFOlpkUQ/xkdYMvOFM8cjbv7n7uq3sYzUf93tbck4Wwz4tLtprq66GBhDQn1s06gkPiK4MJqUHZsdytuNcFacZO/2S66hK08CjwewQE8Wqs1T8I3wIEQENcMkWha0xwyR/2JfDGwQEGPnO56etL1eXzhScwqGARW1kOAS/zSzg4aWBUITk5FvDZG3lMxpZWIFEOmCIO92DR70BAc8QJz+51mzXvdFSb1kcwkvwcNWQ78ZRfnS41hq84A6Ps84PJRij48wy1oonI2tEXx/RHwoWOBcBFev7VNBDLWCo5VFQ3TtBJeHne5STFubET+3Eg1YWcuFhcAIc2zmVrh/W36NY6a4wkl";
+    public VuforiaLocalizer vuforia;
     private TFObjectDetector tfod;
 
     boolean initFlag = false;
@@ -209,13 +209,13 @@ protected void move(double distance, double power, int direction) {
 
     }
 
-    void markerKnock (/*boolean isReversed*/){
+   // void markerKnock (/*boolean isReversed*/){
 
         //robot.markerStick.setPosition(0);
 
         //if (isReversed == false){
 
-            boolean flag = false;
+           /* boolean flag = false;
 
             //robot.markerStick.setDirection(Servo.Direction.FORWARD);
             //robot.markerStick.scaleRange(0,1);
@@ -233,9 +233,9 @@ protected void move(double distance, double power, int direction) {
         //}
         //else{
             robot.markerStick.setPosition(0);
-        //}
+        //}*/
 
-    }
+
 
     void detach(){
 /*
@@ -402,11 +402,11 @@ protected void move(double distance, double power, int direction) {
     /***
      * Initialize the Vuforia localization engine.
      */
-    private void initVuforia() {
+    /*private void initVuforia() {
         /*
          * Configure Vuforia by creating a Parameter object, and passing it to the Vuforia engine.
          */
-        VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
+       /* VuforiaLocalizer.Parameters parameters = new VuforiaLocalizer.Parameters();
 
         parameters.vuforiaLicenseKey = VUFORIA_KEY;
         parameters.cameraDirection = VuforiaLocalizer.CameraDirection.BACK;
@@ -415,7 +415,7 @@ protected void move(double distance, double power, int direction) {
         vuforia = ClassFactory.getInstance().createVuforia(parameters);
 
         // Loading trackables is not necessary for the Tensor Flow Object Detection engine.
-    }
+    }*/
 
     /**
      * Initialize the Tensor Flow Object Detection engine.
@@ -539,8 +539,8 @@ protected void move(double distance, double power, int direction) {
     //
     // NOTE: If you are running on a CONTROL HUB, with only one USB WebCam, you must select CAMERA_CHOICE = BACK; and PHONE_IS_PORTRAIT = false;
     //
-    private static final VuforiaLocalizer.CameraDirection CAMERA_CHOICE = BACK;
-    private static final boolean PHONE_IS_PORTRAIT = false  ;
+    public static final VuforiaLocalizer.CameraDirection CAMERA_CHOICE = BACK;
+    public static final boolean PHONE_IS_PORTRAIT = false  ;
 
     /*
      * IMPORTANT: You need to obtain your own license key to use Vuforia. The string below with which
@@ -811,12 +811,12 @@ protected void move(double distance, double power, int direction) {
 
 
     }
-    public DcMotor slideMotor = null;
+    //public DcMotor slideMotor = null;
 
 
-    protected void slideMove(double power) {
-        robot.slideMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-    }
+    /*protected void slideMove(double power) {
+        robot.slideMotor.setPower(power);
+    }*/
 
 
 

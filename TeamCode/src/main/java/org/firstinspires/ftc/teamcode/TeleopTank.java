@@ -78,6 +78,7 @@ public class TeleopTank extends LinearOpMode {
 
     @Override
     public void runOpMode() {
+
         double left;
         double right;
         double rightside;
@@ -118,7 +119,7 @@ public class TeleopTank extends LinearOpMode {
                 turn += 0.01;
                 robot.hookOne.setPosition(turn);
                 //robot.hookTwo.setPosition(turn);
-            } else if (gamepad1.left_bumper && turn > 0.2){
+            } else if (gamepad1.left_bumper && turn > 0.1){
                 turn -= 0.01;
                 robot.hookOne.setPosition(turn);
                 //robot.hookTwo.setPosition(turn);
@@ -126,30 +127,32 @@ public class TeleopTank extends LinearOpMode {
             //Hook Code
 
             //Grab Code
-            /*if (gamepad1.left_stick_button && grabPos < 1){
-                grabPos += 0.01;
-                robot.grab.setPosition(grabPos);
-            } else if (gamepad1.right_stick_button && grabPos > 0){
-                grabPos -= 0.01;
-                robot.grab.setPosition(grabPos);
-            }*/
+            if (gamepad2.right_bumper /*&& grabPos < 1*/){
+                robot.grab.setPosition(0.26);
+                //grabPos += 0.5;
+//            } else if (gamepad2.dpad_left /*&& grabPos > 0*/){
+//                grabPos -= 0.5;
+//                robot.grab.setPosition(-0.5);
+            } else if (gamepad2.left_bumper){
+                robot.grab.setPosition(1);
+            }
             //Grab Code
 
             //Slide Code
-//            if (gamepad1.dpad_up && robot.slide.getCurrentPosition() < 300){
-//                robot.slide.setPower(0.5);
-//            } else if (gamepad1.dpad_down && robot.slide.getCurrentPosition() > 0 ){
-//                robot.slide.setPower(-0.5);
-//            } else {
-//                robot.slide.setPower(0);
-//            }
+            if (gamepad2.dpad_up /*&& robot.slideMotor.getCurrentPosition() < 300*/){
+               robot.slideMotor.setPower(1);
+            } else if (gamepad2.dpad_down /*&& robot.slideMotor.getCurrentPosition() > 0*/  ){
+                robot.slideMotor.setPower(-1);
+            } else {
+                robot.slideMotor.setPower(0);
+            }
             //Slide Code
-
-            telemetry.addData("Hook",turn);
-            telemetry.addData("L",gamepad1.left_bumper);
-            telemetry.addData("R",gamepad1.right_bumper);
-            telemetry.addData("Y",gamepad1.left_stick_y);
-            telemetry.addData("X",gamepad1.left_stick_x);
+            telemetry.addData("Hook",robot.hookOne.getPosition());
+            //telemetry.addData("Hook",grabPos);
+//            telemetry.addData("L",gamepad1.left_bumper);
+//            telemetry.addData("R",gamepad1.right_bumper);
+//            telemetry.addData("Y",gamepad1.left_stick_y);
+//            telemetry.addData("X",gamepad1.left_stick_x);
             telemetry.update();
 
 
@@ -270,14 +273,14 @@ public class TeleopTank extends LinearOpMode {
                 telemetry.update();
 
             }*/
-
-            if ((gamepad1.dpad_up) || (gamepad2.dpad_up))  {
+//slide
+          /*  if ((gamepad1.dpad_up) || (gamepad2.dpad_up))  {
                 robot.slideMotor.setPower(0.5);
             } else if ((gamepad1.dpad_down) || (gamepad2.dpad_down))  {
                 robot.slideMotor.setPower(-0.5);
             } else {
                 robot.slideMotor.setPower(0);
-            }
+            }*/
             /*if ((gamepad1.b) || (gamepad2.b)) {
                     //robot.clawLeft.setPosition(OPEN_LEFT);
                     //robot.clawRight.setPosition(OPEN_RIGHT);
